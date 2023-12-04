@@ -1,0 +1,8 @@
+# SSH client configuration
+
+# Specify the private key to use for authentication
+IdentityFile ~/.ssh/school
+
+# Disable password authentication
+PasswordAuthentication no
+
