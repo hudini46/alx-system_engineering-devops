@@ -1,11 +1,12 @@
-package { 'augeas-tools':
-  ensure => installed,
+# config ssh_config
+file_line {'pass auten No':
+  ensure => present,
+    path => '/etc/ssh/ssh_config',
+    line => ' PasswordAuthentication no',
+    match=> 'PasswordAuthentication yes',
 }
-
-augeas { 'SSH configuration':
-  context => '/files/etc/ssh/ssh_config',
-  changes => [
-    'set PasswordAuthentication no',
-    'set IdentityFile ~/.ssh/school',
-  ],
+file_line {'Add ident file':
+  ensure => present,
+    path => '/etc/ssh/ssh_config',
+    line => ' IdentityFile ~/.ssh/school',
 }
